@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://trustixo.com
+
+# Sitemaps
+Sitemap: https://trustixo.com/sitemap.xml
