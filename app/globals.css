@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.tradingview-banner {
+  background-size: cover;
+  background-position: center;
+}
+
+/* Light mode banner */
+.tradingview-banner {
+  background-image: url('https://s3.tradingview.com/pub/referrals/creatives/WT/EN/468x60Banner.jpg');
+}
+
+/* Dark mode banner */
+.dark .tradingview-banner {
+  background-image: url('https://s3.tradingview.com/pub/referrals/creatives/DT/EN/468x60Banner.jpg');
+}
+
+/* High resolution versions */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .tradingview-banner {
+    background-image: url('https://s3.tradingview.com/pub/referrals/creatives/WT/EN/936x120Banner.jpg');
+  }
+  
+  .dark .tradingview-banner {
+    background-image: url('https://s3.tradingview.com/pub/referrals/creatives/DT/EN/936x120Banner.jpg');
+  }
+}
