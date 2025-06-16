@@ -31,9 +31,48 @@ export async function generateMetadata({
     return {};
   }
 
+  const url = `https://trustixo.com/posts/${post.slugAsParams}`;
+  const readingTime = Math.ceil(post.body.raw.split(/\s+/).length / 200);
+
   return {
     title: post.title,
     description: post.description,
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      type: "article",
+      url,
+      publishedTime: post.date,
+      modifiedTime: post.date,
+      authors: ["Trustixo Team"],
+      tags: post.tags || [],
+      images: [
+        {
+          url: `https://trustixo.com/posts/${post.slugAsParams}/og-image.jpg`,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
+      images: [
+        `https://trustixo.com/posts/${post.slugAsParams}/twitter-image.jpg`,
+      ],
+    },
+    alternates: {
+      canonical: url,
+    },
+    other: {
+      "article:published_time": post.date,
+      "article:modified_time": post.date,
+      "article:reading_time": `${readingTime} min read`,
+      "article:section": post.tags?.[0] || "Finance",
+      "article:tag": post.tags?.join(", ") || "finance, investing, money",
+    },
   };
 }
 

@@ -6,6 +6,7 @@ import { Analytics } from "@/components/analytics";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ModeToggle } from "@/components/mode-toggle";
 import { Footer } from "@/components/footer";
+import { Disclaimer } from "@/components/disclaimer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -51,6 +52,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 </nav>
               </div>
             </header>
+
             <main>{children}</main>
             <Footer />
             <Analytics />
